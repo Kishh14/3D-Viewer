@@ -11,7 +11,7 @@ import { Suspense } from "react";
 import Loader from "./Loader.jsx";
 
 function Shoe() {
-  const { scene } = useGLTF("/public/Test_Model_Shoe.glb");
+  const { scene } = useGLTF("/Test_Model_Shoe.glb");
 
   scene.traverse((child) => {
     if (child.isMesh) {
