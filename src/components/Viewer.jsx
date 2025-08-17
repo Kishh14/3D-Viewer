@@ -11,7 +11,7 @@ import { Suspense } from "react";
 import Loader from "./Loader.jsx";
 
 function Shoe() {
-  const { scene } = useGLTF("/Test_Model_Shoe.glb");
+  const { scene } = useGLTF("./Test_Model_Shoe.glb");
 
   scene.traverse((child) => {
     if (child.isMesh) {
@@ -44,11 +44,13 @@ export default function Viewer() {
             </Center>
           </Bounds>
 
-          <Environment preset="studio" />
+          <Suspense fallback={<Loader />}>
+            <Environment preset="studio" />
+          </Suspense>
 
           {/* Soft shadows under the shoe */}
           <ContactShadows
-            position={[0, -0.8, 0]}
+            position={[0, -1, 0]}
             opacity={0.5}
             scale={10}
             blur={2.5}
